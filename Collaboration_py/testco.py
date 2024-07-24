@@ -1,10 +1,19 @@
-print("Hello World!")
+# 사칙연산 협업
+def add(x, y):
+    return x + y
 
+def sub(x, y):
+    return x - y
 
+def multiply(x, y):
+    return x * y
 
-for i in range(10):
-    i += i
+def divide(x, y):
+    return x / y
 
-print(i)
-
-print("add a branch")
+import sys
+num1, num2 = map(int, sys.stdin.readline().split())
+print(add(num1, num2))
+print(sub(num1, num2))
+print(multiply(num1, num2))
+print(divide(num1, num2))
