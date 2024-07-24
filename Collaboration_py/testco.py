@@ -1,10 +1,7 @@
-print("Hello World!")
+# 사칙연산 협업
+def add(x, y):
+    return x + y
 
+def sub(x, y):
+    return x - y
 
-
-for i in range(10):
-    i += i
-
-print(i)
-
-print("add a branch")
