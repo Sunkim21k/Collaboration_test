@@ -24,27 +24,47 @@
 
 # BJ25206
 # 졸업조건 전공평점 3.3 이상 (학점 * 과목평점)합 / 학점의 총합
+# import sys
+# grade_dc = {
+#     "A+" : 4.5,
+#     "A0" : 4.0,
+#     "B+" : 3.5,
+#     "B0" : 3.0,
+#     "C+" : 2.5,
+#     "C0" : 2.0,
+#     "D+" : 1.5,
+#     "D0" : 1.0,
+#     "F" : 0.0
+# }
+# grade_subject_sum = 0
+# grade_sum = 0
+#
+# for i in range(20):
+#     grade_list = sys.stdin.readline().strip().split()
+#     if grade_list[-1] == "P":
+#         continue
+#     grade_sum += float(grade_list[-2]) # 학점의 총합
+#     grade_subject_sum += (float(grade_list[-2]) * grade_dc[grade_list[-1]]) # 학점 * 과목평점의 합
+#
+# grade_avg = grade_subject_sum / grade_sum
+# print(grade_avg)
+
+# BJ2738 두 행렬의 덧셈
 import sys
-grade_dc = {
-    "A+" : 4.5,
-    "A0" : 4.0,
-    "B+" : 3.5,
-    "B0" : 3.0,
-    "C+" : 2.5,
-    "C0" : 2.0,
-    "D+" : 1.5,
-    "D0" : 1.0,
-    "F" : 0.0
-}
-grade_subject_sum = 0
-grade_sum = 0
+n, m = map(int, sys.stdin.readline().split())
 
-for i in range(20):
-    grade_list = sys.stdin.readline().strip().split()
-    if grade_list[-1] == "P":
-        continue
-    grade_sum += float(grade_list[-2]) # 학점의 총합
-    grade_subject_sum += (float(grade_list[-2]) * grade_dc[grade_list[-1]]) # 학점 * 과목평점의 합
+matrix_a = []
+matrix_b = []
+matrix_sum = []
 
-grade_avg = grade_subject_sum / grade_sum
-print(grade_avg)
+for i in range(n):
+    matrix_a.append(list(sys.stdin.readline().split()))
+
+for j in range(n):
+    matrix_b.append(list(sys.stdin.readline().split()))
+    matrix_sum.append(('a '* m).split())
+    for k in range(m):
+        matrix_sum[j][k] = int(matrix_a[j][k]) + int(matrix_b[j][k])
+
+for i in range(n):
+    print(*matrix_sum[i])
