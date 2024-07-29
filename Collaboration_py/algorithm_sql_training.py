@@ -50,21 +50,38 @@
 # print(grade_avg)
 
 # BJ2738 두 행렬의 덧셈
+# import sys
+# n, m = map(int, sys.stdin.readline().split())
+#
+# matrix_a = []
+# matrix_b = []
+# matrix_sum = []
+#
+# for i in range(n):
+#     matrix_a.append(list(sys.stdin.readline().split()))
+#
+# for j in range(n):
+#     matrix_b.append(list(sys.stdin.readline().split()))
+#     matrix_sum.append(('a '* m).split())
+#     for k in range(m):
+#         matrix_sum[j][k] = int(matrix_a[j][k]) + int(matrix_b[j][k])
+#
+# for i in range(n):
+#     print(*matrix_sum[i])
+
+# BJ2566 최댓값
 import sys
-n, m = map(int, sys.stdin.readline().split())
+max_num = 0
+matrix_list = []
+where_col_row = "1 1"
 
-matrix_a = []
-matrix_b = []
-matrix_sum = []
+for i in range(9):
+    matrix_list.append(list(sys.stdin.readline().split()))
+    for j in range(9):
+        if int(matrix_list[i][j]) > max_num:
+            max_num = int(matrix_list[i][j])
+            where_col_row = f"{i+1} {j+1}"
 
-for i in range(n):
-    matrix_a.append(list(sys.stdin.readline().split()))
+print(max_num)
+print(where_col_row)
 
-for j in range(n):
-    matrix_b.append(list(sys.stdin.readline().split()))
-    matrix_sum.append(('a '* m).split())
-    for k in range(m):
-        matrix_sum[j][k] = int(matrix_a[j][k]) + int(matrix_b[j][k])
-
-for i in range(n):
-    print(*matrix_sum[i])
