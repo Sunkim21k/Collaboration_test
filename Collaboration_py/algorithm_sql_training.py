@@ -86,15 +86,37 @@
 # print(where_col_row)
 
 # BJ10798 세로읽기
+# import sys
+# matrix_list = []
+# for i in range(5):
+#     matrix_list.append(list(sys.stdin.readline().split()))
+#
+# text = ""
+# for i in range(15):
+#     for j in range(5):
+#         if len(matrix_list[j][0]) > i:
+#             text += matrix_list[j][0][i]
+#
+# print(text)
+
+# BJ2563 색종이
 import sys
+count = int(input())
 matrix_list = []
-for i in range(5):
-    matrix_list.append(list(sys.stdin.readline().split()))
+area = 0
+for i in range(count):
+    x, y = map(int, sys.stdin.readline().split())
+    matrix_list.append((x, y))  # 좌표 저장
 
-text = ""
-for i in range(15):
-    for j in range(5):
-        if len(matrix_list[j][0]) > i:
-            text += matrix_list[j][0][i]
+paper = [[0] * 100 for _ in range(100)]  # 도화지는 100x100으로 가정
 
-print(text)
+for x, y in matrix_list:
+    for i in range(x, x + 10):
+        for j in range(y, y + 10):
+            paper[i][j] = 1  # 색종이가 붙은 부분 표시
+
+for row in paper:
+    area += sum(row)
+
+print(area)
+
