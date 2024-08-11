@@ -100,23 +100,37 @@
 # print(text)
 
 # BJ2563 색종이
-import sys
-count = int(input())
-matrix_list = []
-area = 0
-for i in range(count):
-    x, y = map(int, sys.stdin.readline().split())
-    matrix_list.append((x, y))  # 좌표 저장
+# import sys
+# count = int(input())
+# matrix_list = []
+# area = 0
+# for i in range(count):
+#     x, y = map(int, sys.stdin.readline().split())
+#     matrix_list.append((x, y))  # 좌표 저장
+#
+# paper = [[0] * 100 for _ in range(100)]  # 도화지는 100x100으로 가정
+#
+# for x, y in matrix_list:
+#     for i in range(x, x + 10):
+#         for j in range(y, y + 10):
+#             paper[i][j] = 1  # 색종이가 붙은 부분 표시
+#
+# for row in paper:
+#     area += sum(row)
+#
+# print(area)
 
-paper = [[0] * 100 for _ in range(100)]  # 도화지는 100x100으로 가정
+# BJ 2745 진법 변환
+number, b = input().split()  # b진법 수 n
+b = int(b)
 
-for x, y in matrix_list:
-    for i in range(x, x + 10):
-        for j in range(y, y + 10):
-            paper[i][j] = 1  # 색종이가 붙은 부분 표시
+numbers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+answer = 0
 
-for row in paper:
-    area += sum(row)
+for i in range(len(number)):
+    if number[-(i+1)] in numbers:  # 첫째 자리부터
+        answer += (b ** i) * (numbers.find(number[-(i+1)]) + 10)
+    else:
+        answer += (b ** i) * int(number[-(i+1)])
 
-print(area)
-
+print(answer)
