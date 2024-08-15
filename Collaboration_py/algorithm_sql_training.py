@@ -120,17 +120,51 @@
 #
 # print(area)
 
-# BJ 2745 진법 변환
-number, b = input().split()  # b진법 수 n
-b = int(b)
+# BJ 2745 진법 변환 (N진법 → 10진법)
+# number, b = input().split()  # b진법 수 n
+# b = int(b)
+#
+# numbers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+# answer = 0
+#
+# for i in range(len(number)):
+#     if number[-(i+1)] in numbers:  # 첫째 자리부터
+#         answer += (b ** i) * (numbers.find(number[-(i+1)]) + 10)
+#     else:
+#         answer += (b ** i) * int(number[-(i+1)])
+#
+# print(answer)
 
-numbers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-answer = 0
+# BJ 11005 진법 변환2 (10진법 → N진법)
+# number, b = input().split() # 10진법 number를 b진법으로 변환
+# b = int(b)
+# number = int(number)
+# numbers = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+# answer = ""
+# namugy = 0
+# while number > 0:
+#     namugy = number % b
+#     number = number // b
+#     answer = (numbers[namugy] + answer)
+#
+# print(answer)
 
-for i in range(len(number)):
-    if number[-(i+1)] in numbers:  # 첫째 자리부터
-        answer += (b ** i) * (numbers.find(number[-(i+1)]) + 10)
-    else:
-        answer += (b ** i) * int(number[-(i+1)])
+# BJ 2720
+import sys
+quarter = 25
+dime = 10
+nickel = 5
+penny = 1
+temp = ""
+case_list = []
+test = int(input())
+for i in range(test):
+    test_case = int(sys.stdin.readline())
+    temp += str(test_case // quarter) + " "
+    temp += str((test_case % quarter) // dime) + " "
+    temp += str((test_case % quarter % dime) // nickel) + " "
+    temp += str((test_case % nickel) // penny)
+    case_list.append(temp)
+    temp = ""
 
-print(answer)
+print("\n".join(case_list))
