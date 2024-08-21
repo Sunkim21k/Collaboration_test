@@ -150,21 +150,98 @@
 # print(answer)
 
 # BJ 2720
-import sys
-quarter = 25
-dime = 10
-nickel = 5
-penny = 1
-temp = ""
-case_list = []
-test = int(input())
-for i in range(test):
-    test_case = int(sys.stdin.readline())
-    temp += str(test_case // quarter) + " "
-    temp += str((test_case % quarter) // dime) + " "
-    temp += str((test_case % quarter % dime) // nickel) + " "
-    temp += str((test_case % nickel) // penny)
-    case_list.append(temp)
-    temp = ""
+# import sys
+# quarter = 25
+# dime = 10
+# nickel = 5
+# penny = 1
+# temp = ""
+# case_list = []
+# test = int(input())
+# for i in range(test):
+#     test_case = int(sys.stdin.readline())
+#     temp += str(test_case // quarter) + " "
+#     temp += str((test_case % quarter) // dime) + " "
+#     temp += str((test_case % quarter % dime) // nickel) + " "
+#     temp += str((test_case % nickel) // penny)
+#     case_list.append(temp)
+#     temp = ""
+#
+# print("\n".join(case_list))
 
-print("\n".join(case_list))
+# BJ 2903 중앙 이동 알고리즘
+# 초기상태 - 정사각형을 이루는 점 4개
+# 1. 정사각형의 각 변의 중앙에 점을 하나 추가
+# 2. 정사각형의 중심에 점을 하나 추가
+# 위 과정을 n번했을때 저장되는 점의 갯수 (중복제외)
+
+# 가로, 세로 늘어나는 정사각형수 2 ** (n-1)
+# 가로, 세로 점의 수 = (정사각형수 * 2) + 1
+# 저장해야하는 점의 수 = 가로 점의 수 * 세로 점의 수 = 가로 점의 수 ** 2
+
+# N = int(input())
+# add_square = 2 ** (N-1)
+# save_dot = ((add_square * 2) + 1) ** 2
+# print(save_dot)
+
+# BJ 2292 벌집
+
+# N = int(input())
+# count = 1
+# size = 1
+# answer = 1
+# # 벌집 크기 (마지막번호) 중앙에서 오른쪽아래
+# while N > size:
+#     count += 1
+#     size = (6 * ((count *(count-1)) // 2)) + 1
+#
+# print(count)
+
+# BJ 1193 분수찾기
+
+# 1  2  6  7  15 16
+# 3  5  8  14 17
+# 4  9  13 18
+# 10 12 19
+# 11 20
+# 21
+#
+#  1 4 1 8 1
+
+# n = 1
+# number = 1
+# X = int(input())
+# answer = 0
+# while True:
+#     if X <= number:
+#         answer = abs(number - X)
+#         break
+#
+#     if n % 2 == 1:
+#         number += 1
+#     else:
+#         if X <= number + n - 1:
+#             answer = abs(number - X)
+#             break
+#         number += 2 * n
+#
+#     n += 1
+#
+# print(f"{answer+1}/{n-answer}")
+
+# BJ 2869 달팽이
+import sys
+day = 1
+height = 0
+A, B, V = map(int, sys.stdin.readline().split())
+
+V -= A
+count = abs(V // (A-B))
+day += count
+count_ = abs(V % (A-B))
+if count_ != 0:
+    day += 1
+
+print(day)
+
+
