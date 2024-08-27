@@ -230,18 +230,91 @@
 # print(f"{answer+1}/{n-answer}")
 
 # BJ 2869 달팽이
-import sys
-day = 1
-height = 0
-A, B, V = map(int, sys.stdin.readline().split())
+# import sys
+# day = 1
+# height = 0
+# A, B, V = map(int, sys.stdin.readline().split())
+#
+# V -= A
+# count = abs(V // (A-B))
+# day += count
+# count_ = abs(V % (A-B))
+# if count_ != 0:
+#     day += 1
+#
+# print(day)
 
-V -= A
-count = abs(V // (A-B))
-day += count
-count_ = abs(V % (A-B))
-if count_ != 0:
-    day += 1
+# BJ 5086 배수와 약수
+# import sys
+#
+# while True:
+#     first, second = map(int, sys.stdin.readline().split())
+#     if first == 0 and second == 0:
+#         break
+#
+#     if first % second == 0:
+#         print('multiple')
+#     elif second % first == 0:
+#         print('factor')
+#     else:
+#         print('neither')
 
-print(day)
+# BJ 2501 약수 구하기
+# import sys
+# n, k = map(int, sys.stdin.readline().split())
+# count = 0
+# num = 1
+#
+# while True:
+#     if n % num == 0:
+#         count += 1
+#         if count == k:
+#             print(num)
+#             break
+#
+#     if n == num:
+#         print(0)
+#         break
+#
+#     num += 1
 
+# BJ 9506 약수들의 합
+# import sys
+# while True:
+#     n = int(sys.stdin.readline())
+#     num = 1
+#     total = 0
+#     numbers = []
+#     if n == -1:
+#         break
+#     while True:
+#         if n % num == 0:
+#             total += num
+#             numbers.append(num)
+#             if total > n:
+#                 print(f"{n} is NOT perfect.")
+#                 break
+#
+#         if n - 1 == num:
+#             if total != n:
+#                 print(f"{n} is NOT perfect.")
+#                 break
+#             else:
+#                 text = " + ".join(map(str, numbers))
+#                 print(f"{n} = {text}")
+#                 break
+#         num += 1
 
+# BJ 1978 소수 찾기
+def is_prime(num):
+    if num < 2:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+N = int(input())
+numbers = list(map(int, input().split()))
+prime_count = sum(1 for number in numbers if is_prime(number))
+print(prime_count)
