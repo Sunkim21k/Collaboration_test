@@ -306,15 +306,107 @@
 #         num += 1
 
 # BJ 1978 소수 찾기
-def is_prime(num):
-    if num < 2:
-        return False
-    for i in range(2, int(num ** 0.5) + 1):
-        if num % i == 0:
-            return False
-    return True
+# def is_prime(num):
+#     if num < 2:
+#         return False
+#     for i in range(2, int(num ** 0.5) + 1):
+#         if num % i == 0:
+#             return False
+#     return True
+#
+# N = int(input())
+# numbers = list(map(int, input().split()))
+# prime_count = sum(1 for number in numbers if is_prime(number))
+# print(prime_count)
 
-N = int(input())
-numbers = list(map(int, input().split()))
-prime_count = sum(1 for number in numbers if is_prime(number))
-print(prime_count)
+# BJ 2581 소수
+# import sys
+# m = int(sys.stdin.readline())
+# n = int(sys.stdin.readline())
+# numbers = []
+#
+# for i in range(m, n+1):
+#     count = 0
+#     if i == 1:
+#         continue
+#     for j in range(2, int(i**0.5)+1):
+#         if j != i+1 and i % j == 0:
+#             count += 1
+#             break
+#     if count == 0:
+#         numbers.append(i)
+#     count = 0
+#
+# if len(numbers) == 0:
+#     print(-1)
+# else:
+#     print(sum(numbers))
+#     print(min(numbers))
+
+# BJ 11653 소인수분해
+# import sys
+#
+#
+# def prime_num(n):
+#     if n == 1:
+#         return
+#
+#     while n % 2 == 0:
+#         print(2)
+#         n //= 2
+#
+#     for i in range(3, int(n ** 0.5) + 1, 2):
+#         while n % i == 0:
+#             print(i)
+#             n //= i
+#
+#     if n > 2:
+#         print(n)
+#
+#
+# number = int(sys.stdin.readline().strip())
+# prime_num(number)
+
+# BJ 27323 직사각형
+# a = int(input())
+# b = int(input())
+# print(a * b)
+
+# BJ 1085 직사각형에서 탈출
+# x, y, w, h= map(int, input().split())
+# numbers = []
+# numbers.append(x-0)
+# numbers.append(y-0)
+# numbers.append(w-x)
+# numbers.append(h-y)
+# print(min(numbers))
+
+# BJ 3009 네 번째 점
+# numbers = []
+# for i in range(3):
+#     a, b = map(int, input().split())
+#     numbers.append(a)
+#     numbers.append(b)
+#
+# answer_x = 0
+# answer_y = 0
+#
+# if numbers[0] == numbers[2]:
+#     answer_x = numbers[4]
+# elif numbers[0] == numbers[4]:
+#     answer_x = numbers[2]
+# else:
+#     answer_x = numbers[0]
+#
+# if numbers[1] == numbers[3]:
+#     answer_y = numbers[5]
+# elif numbers[1] == numbers[5]:
+#     answer_y = numbers[3]
+# else:
+#     answer_y = numbers[1]
+#
+# print(answer_x, answer_y)
+
+# BJ 15894 정사각형
+# n = int(input())
+# print(n*4)
