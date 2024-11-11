@@ -475,3 +475,9 @@
 # n = int(input())
 # print(1) # 코드1 수행횟수
 # print(0) # 최고차항의 차수
+
+# BJ 5522 카드 게임
+# numbers = 0
+# for i in range(5):
+#     numbers += int(input())
+# print(numbers)
