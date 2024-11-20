@@ -481,3 +481,11 @@
 # for i in range(5):
 #     numbers += int(input())
 # print(numbers)
+
+# BJ 4999
+# J = input("")
+# doctor = input("")
+# if len(J) < len(doctor):
+#     print("no")
+# else:
+#     print("go")
